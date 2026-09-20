@@ -480,6 +480,19 @@ function updateLoadMoreButton(filterMeals) {
    DISPLAY MEALS
 ========================= */
 
+function getMenuColumnCount() {
+
+    if (window.innerWidth <= 480) {
+        return 1;
+    }
+
+    if (window.innerWidth <= 900) {
+        return 2;
+    }
+
+    return 3;
+}
+
 function displayMeals() {
 
     if (!menuGrid) {
@@ -492,11 +505,29 @@ function displayMeals() {
         filterMeals.slice(0, visibleMeals);
 
 
+const isMobile =
+    window.matchMedia("(max-width: 480px)").matches;
+
+if (isMobile) {
+
     menuGrid.innerHTML = `
         <div class="menu-column"></div>
-        <div class="menu-column"></div>
-        <div class="menu-column"></div>
     `;
+
+} else {
+
+   const columnCount = getMenuColumnCount();
+
+menuGrid.innerHTML = "";
+
+for (let i = 0; i < columnCount; i++) {
+
+    menuGrid.insertAdjacentHTML(
+        "beforeend",
+        `<div class="menu-column"></div>`
+    );
+}
+}
 
 
     const columns =
@@ -547,8 +578,8 @@ function displayMeals() {
         `;
 
 
-        columns[index % 3]
-            .insertAdjacentHTML("beforeend", card);
+    columns[index % columns.length]
+    .insertAdjacentHTML("beforeend", card);
 
     });
 
@@ -579,18 +610,18 @@ if (menuGrid) {
         }
         /* Add To Cart لا يفتح أو يغلق الكارد */
 
-        const card =
-            event.target.closest(".menu-card");
+  const card =
+    event.target.closest(".menu-card");
 
+if (!card) {
+    return;
+}
 
-        if (!card) {
-            return;
-        }
+if (window.matchMedia("(hover: none)").matches) {
 
+    card.classList.toggle("expanded");
 
-        card.classList.toggle("expanded");
-
-        console.log("Card clicked");
+}
 
     });
 
@@ -735,7 +766,7 @@ function loadMoreMeals() {
         `;
 
 
-        columns[realIndex % 3]
+        columns[realIndex % columns.length]
             .insertAdjacentHTML(
                 "beforeend",
                 card

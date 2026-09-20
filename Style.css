@@ -39,7 +39,7 @@ body {
 
 main menu {
     flex: 1;
-    padding-top: 150px;
+
 }
 .main-footer {
     margin-top: auto;
@@ -61,7 +61,6 @@ a {
 ul {
     list-style: none;
 }
-
 
 /* =========================
    IMAGES
@@ -627,7 +626,7 @@ gap: 30px;
     font-weight: bold;
  
     transition:
-        max-height 0.4s ease,
+        max-height 1s ease,
         opacity 0.3s ease;
 }
 .add-cart{
@@ -761,79 +760,7 @@ width: 100%;
 /*=========================
    Cart & Contact Us 
 ===========================*/
-.cart-contact-container{
-    height: auto;
-    gap: 80px;
-    max-width: 1500px;
-    display: grid;
-    grid-template-columns: 1.7fr 1.2fr;
-    margin: 140px auto 70px;
-    align-items: start;
-}
-.contact-us{
- 
-    margin: 40px;
-    height: auto;
-    width: 80%;
-}
-.contact-form{
-    padding: 30px;
-    height: auto;
-    width: 95%;
-    border: none;
-    background-color: var(--white);
-    border-radius: 20px;
-    box-sizing: border-box;
-    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.5);
 
-}
-.contact-form legend{
-    color: var(--charcoal);
-     padding: 0 15px;
-    font-size: 24px;
-    font-weight:bold ;
-}
-.contact-form label{
-    font-weight: bold;
-}
-.contact-form button{
-    border: 2px solid #949393;
-    font-size: 16px;
-    width: 150px;
-    height: 50px;
-}
-.contact-form input,
-.contact-form select,
-.contact-form textarea{
-    margin-bottom: 18px;
-
-    border: 1px solid #d8d8d8;
-
-    background-color: #fafafa;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: var(--brand-red);
-
-    box-shadow:
-        0 0 0 3px rgba(185,28,28,0.10);
-
-    background-color: white;
-}
-.contact-form button{
-    background-color: var(--charcoal);
-    color: white;
-    border: none;
-    border-radius: 8px;
-}
-.contact-form button:hover {
-    background-color: var(--brand-red);
-}
 
 #cartItems{
     display: grid;
@@ -1096,6 +1023,8 @@ box-shadow: 2px 2px 2px rgb(0,0,0,0.5);
     color: #c91d1d;
 }
 .order-form{
+    
+    padding: 30px;
     justify-self: center;
     width: 90%;
 }
@@ -1148,9 +1077,123 @@ box-shadow: 2px 2px 2px rgb(0,0,0,0.5);
 .close-modal-btn:hover {
     color: #c91d1d;
 }
+/*=========================
+About & Contact Us
+========================*/
+.cart-contact-container{
+    height: auto;
+    gap: 80px;
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 1.7fr 1.2fr;
+    margin: 140px auto 70px;
+    align-items: start;
+}
+.contact-us{
+   
+    margin: 40px;
+    height: auto;
+    width: 70%;
+}
+.contact-form{
+     justify-self: center;
+    padding: 30px;
+    height: auto;
+    width: 70%;
+    border: none;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.5);
+
+}
+.contact-form legend{
+    color: var(--charcoal);
+     padding: 0 15px;
+    font-size: 24px;
+    font-weight:bold ;
+}
+.contact-form label{
+    font-weight: bold;
+}
+.contact-form button{
+    border: 2px solid #949393;
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+    margin-bottom: 18px;
+
+    border: 1px solid #d8d8d8;
+
+    background-color: #fafafa;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--brand-red);
+
+    box-shadow:
+        0 0 0 3px rgba(185,28,28,0.10);
+
+    background-color: white;
+}
+.contact-form button{
+    background-color: var(--charcoal);
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+.contact-form button:hover {
+    background-color: var(--brand-red);
+}
+.about-contact-section{
+    display: flex;
+    justify-self: center;
+    padding-top:130px;
+    width: 90%;
+    height: auto;
+
+}
+.about-section{
+    text-align: center;
+    padding-left: 40px;
+    width: 80%;
+}
+.about-section h1{
+    font-weight: bold;
+    font-size: 45px;
+}
+.about-section p{
+    font-size: 18px;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+}
+
+
+
 /* =========================
    RESPONSIVE
 ========================= */
+@media (hover: hover) {
+
+    .menu-card:hover .meal-details {
+     
+        max-height: 600px;
+        opacity: 1;
+        margin-top: 15px;
+        padding: 10px;
+    }
+
+}
 
 @media (min-width: 960px)and (max-width:1032px) {
 .Hero{
@@ -1203,7 +1246,439 @@ box-shadow: 2px 2px 2px rgb(0,0,0,0.5);
 .checkout-box{
     height: 70%;
 }
-.main-footer{
+.footer-main{
+
+    height: 100%;
+    margin: 0;
+}
+.footer-grid{
+
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+.copyright{
+    margin: 0%;
+}
+}
+@media (width: 768px ){
+    .Hero{
+    padding-bottom: 25px;
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:center;
+    align-items: center;
+}
+.Hero-Text {
+    box-sizing: border-box;
+    margin: 0 0 3%;
+    height: 50%;
+    width: 60%;
+    margin-bottom: 20%;
+ 
+}
+.Hero-Text h1{
+    font-size: 30px;
+}
+.Hero-Text p{
+    padding: 5px;
+    font-size: 20px;
+}
+
+
+.Hero-img{
+   
+    margin-top: 1%;
+    border: none;
+    border-radius: 30px;
+    width: 95%;
+    height: 90%;
+}
+.Hero-img img{
+    border: 2px solid #fcfafa;
+    border-radius: 0%;
+    width: 100%;
+}
+.slider-btn {
+    margin-top: 2%;
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+
+
+}
+.next{
+left: calc(50% + 10px);
+   right: auto;
+}
+.prev{
+ left: calc(50% - 46px);
+}
+.popular-dishs-card{
+    margin: 30px;;
+    padding: 0;
+}
+.dish-description{
+    width: 100%;
+}
+.dish-description h1{
+    margin: 10px;
+    font-size: 30px;
+}
+.mealCard{
+    width: 100%;
+    height: 100%;
+}
+.meal-area p
+{
+    font-size: 20px;
+    width: 100%;
+    height: 300px;
+} 
+.categories{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    padding: 20px;
+    gap: 15px;
+
+}
+.category-btn{
+    width: 80%;
+    font-size: 18px;
+    padding: 3px 8px;
+}
+.menu-section{
+    width: 95%;
+    padding: 20px 10px;
+    margin: 25px auto;
+}
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-self: center;
+    width: 95;
+    padding: 15px;
+  
+}
+.menu-card {
+        width: 95%;
+        margin: 0;
+        padding: 15px;
+}
+.menu-card {
+        width: 95%;
+        margin: 0;
+        padding: 15px;
+}
+.cart-contact-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+    padding: 0%;
+}
+.your-cart{
+    width: 90%;
+    padding: 15px;
+    margin: 0;
+}
+#cartItems{
+    width: 100%;
+}
+.cart-summry{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#checkoutBtn{
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 20px;
+    width: 50%;
+}
+ .mainHeader {
+        width: 100%;
+        height: auto;
+        padding: 30px 15px;
+        display: flex;
+        justify-content:space-between;
+      
+    }
+        .header-Logo {
+        font-size: 26px;
+        margin-left: 5%;    
+        white-space: nowrap;
+    }
+       .mainHeader nav {
+        width: 60%;
+    }
+        .mainHeader nav ul {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        }
+        .mainHeader nav li {
+     
+        text-align: center;
+    }
+
+
+    .mainHeader nav a {
+        display: block;
+        padding: 8px 10px;
+        font-size: 16px;
+        line-height: 1.2;
+    }
+ footer,
+    .main-footer {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+
+        padding: 35px 30px;
+
+        background-color: var(--charcoal);
+    }
+.main-footer div{
+    display: flex;
+    flex-direction: column;
+   
+ 
+
+}
+}
+@media (min-width: 360px )and (max-width:480px) {
+.Hero{
+    padding-bottom: 25px;
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:center;
+    align-items: center;
+}
+.Hero-Text {
+    box-sizing: border-box;
+    margin: 0 0 3%;
+    height: 40%;
+    width: 80%;
+    margin-bottom: 20%;
+ 
+}
+.Hero-Text h1{
+    font-size: 30px;
+}
+.Hero-Text p{
+    padding: 5px;
+    font-size: 20px;
+}
+
+
+.Hero-img{
+   
+    margin-top: 1%;
+    border: none;
+    border-radius: 30px;
+    width: 95%;
+    height: 90%;
+}
+.Hero-img img{
+    border: 2px solid #fcfafa;
+    border-radius: 0%;
+    width: 100%;
+}
+.slider-btn {
+    margin-top: 2%;
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    z-index: 5;
+
+
+}
+.next{
+left: calc(50% + 10px);
+   right: auto;
+}
+.prev{
+ left: calc(50% - 46px);
+} 
+.meal-area{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.popular-dishs-card{
+    margin: 30px;;
+    padding: 0;
+}
+.dish-description{
+    width: 100%;
+}
+.dish-description h1{
+    margin: 10px;
+    font-size: 30px;
+}
+.mealCard{
+    width: 100%;
+    height: 100%;
+}
+.meal-area p
+{
+    font-size: 20px;
+    width: 100%;
+    height: 300px;
+}
+.categories{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 20px;
+    gap: 15px;
+
+}
+.category-btn{
+    font-size: 18px;
+    padding: 3px 8px;
+}
+.menu-section{
+    width: 95%;
+    padding: 20px 10px;
+    margin: 25px auto;
+}
+.menu-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    width: 95;
+    padding: 15px;
+  
+}
+.menu-card {
+        width: 95%;
+        margin: 0;
+        padding: 15px;
+}
+.cart-contact-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+    padding: 0%;
+}
+.your-cart{
+    width: 90%;
+    padding: 15px;
+    margin: 0;
+}
+#cartItems{
+    width: 100%;
+}
+.cart-summry{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#checkoutBtn{
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 20px;
+    width: 50%;
+}
+.contact-us{
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    margin: 0;
+}
+.contact-form{
+    width: 80%;
+}
+.checkout-box{
+    height: 95%;
+}
+.checkout-box h2{
+    font-size: 20px;
+}
+.order-form{
+    padding: 0;
+    height: 100%;
+}
+.order-form label{
+    margin: 0px;
+}
+#orderPhone,#orderName,#orderAddress,#orderNotes{
+    padding: 8px 12px;
+}
+
+
+  .mainHeader {
+        width: 100%;
+        height: auto;
+        padding: 12px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+        .header-Logo {
+        font-size: 26px;
+        white-space: nowrap;
+    }
+       .mainHeader nav {
+        width: 100%;
+    }
+        .mainHeader nav ul {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        }
+        .mainHeader nav li {
+        text-align: center;
+    }
+
+
+    .mainHeader nav a {
+        display: block;
+        padding: 8px 10px;
+        font-size: 16px;
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+ footer,.main-footer {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 35px 30px;
+        background-color: var(--charcoal);
+    }
+.main-footer div{
+    display: flex;
+    flex-direction: column;
+   
+ 
 
 }
 }
