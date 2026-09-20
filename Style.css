@@ -821,8 +821,8 @@ border-radius: 10px;
     box-shadow:0 8px 25px rgba(0, 0, 0, 0.12);
     height:auto;
     margin: 0;
-    margin-left: 70px;
-    width: 100%;
+    justify-self: center;
+    width: 60%;
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.5);
 }
 .your-cart legend{
@@ -1077,17 +1077,37 @@ box-shadow: 2px 2px 2px rgb(0,0,0,0.5);
 .close-modal-btn:hover {
     color: #c91d1d;
 }
+.cart-toast{
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    background-color: var(--charcoal);
+    color: white;
+    padding: 14px 20px;
+    border-left: 5px solid var(--brand-red);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 
+    opacity 0.3s ease,transform 0.3s ease;
+    z-index: 10000;
+}
+.cart-toast.show{
+    opacity: 1;
+    transform: translateX(0);
+}
 /*=========================
 About & Contact Us
 ========================*/
 .cart-contact-container{
     height: auto;
-    gap: 80px;
-    max-width: 1500px;
-    display: grid;
-    grid-template-columns: 1.7fr 1.2fr;
+
+    max-width: 100%;
     margin: 140px auto 70px;
-    align-items: start;
+   
 }
 .contact-us{
    
@@ -1513,6 +1533,7 @@ left: calc(50% + 10px);
 
 
 }
+
 .next{
 left: calc(50% + 10px);
    right: auto;
@@ -1604,10 +1625,11 @@ left: calc(50% + 10px);
     width: 50%;
 }
 .contact-us{
-    display: grid;
-    justify-items: center;
+    display: flex;
+    justify-self: center;
     width: 100%;
-    margin: 0;
+
+    
 }
 .contact-form{
     width: 80%;
@@ -1628,6 +1650,31 @@ left: calc(50% + 10px);
 #orderPhone,#orderName,#orderAddress,#orderNotes{
     padding: 8px 12px;
 }
+.about-contact-section{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    padding-top:130px;
+    width: 90%;
+    height: auto;
+
+}
+.about-section{
+    text-align: center;
+    padding-left: 40px;
+    width: 90%;
+}
+.about-section h1{
+    font-weight: bold;
+    font-size: 45px;
+}
+.about-section p{
+    font-size: 18px;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+}
+
 
 
   .mainHeader {
