@@ -1245,9 +1245,9 @@ About & Contact Us
    padding: 10px;
 }
 .meal-area p {
-    padding: 20px;
+    padding: 30px;
     width: 60%;
-    font-size: 30px;
+    font-size: 16px;
 }
 .cart-summry {
  gap: 5px;
@@ -1362,7 +1362,8 @@ left: calc(50% + 10px);
 }
 .meal-area p
 {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 20px;
     width: 100%;
     height: 300px;
 } 
@@ -1430,6 +1431,10 @@ left: calc(50% + 10px);
     text-align: center;
     padding: 10px 20px;
     width: 50%;
+}
+.contact-form legend{
+    padding: 0;
+   font-size: 15px;
 }
  .mainHeader {
         width: 100%;
@@ -1554,19 +1559,16 @@ left: calc(50% + 10px);
     margin: 30px;;
     padding: 0;
 }
-.dish-description{
-    width: 100%;
-}
-.dish-description h1{
-    margin: 10px;
-    font-size: 30px;
+.popular-dishs h1{
+    padding: 20px;
 }
 .mealCard{
+    
     width: 100%;
     height: 100%;
 }
 .meal-area p
-{
+{   padding: 25px;
     font-size: 20px;
     width: 100%;
     height: 300px;
@@ -1638,6 +1640,12 @@ left: calc(50% + 10px);
 .contact-form{
 
     width: 90%;
+}
+.contact-form legend{
+  
+    padding: 0;
+   font-size: 20px;
+
 }
 .checkout-box{
     height: 95%;

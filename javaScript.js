@@ -1110,14 +1110,14 @@ const cartToast =document.getElementById("cartToast");
         return;
     }
 
-    cartToast.textContent= mealName + "added to Cart" ;
+    cartToast.textContent= mealName + " added to Cart" ;
     cartToast.classList.add("show");
     clearTimeout(toastTimer);
     toastTimer=setTimeout(function(){
 
         cartToast.classList.remove("show");
               console.log("Toast hidden");
-    },1000);  
+    },1500);  
       
 }
 
