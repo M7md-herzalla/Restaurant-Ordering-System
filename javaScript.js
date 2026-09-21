@@ -325,12 +325,12 @@ function changeSlide(direction) {
         heroTitle.classList.add(enterClass);
         heroText.classList.add(enterClass);
         
-        void heroSlider.offsetWidth;
+    
 
         heroSlider.classList.remove(enterClass);
         heroTitle.classList.remove(enterClass);
         heroText.classList.remove(enterClass);
-    },400);
+    },300);
 }
 
 
@@ -408,12 +408,12 @@ if (header && hero) {
         if (window.scrollY > 100) {
 
             header.classList.add("show");
-            hero.classList.add("hide");
+           
 
         } else {
 
             header.classList.remove("show");
-            hero.classList.remove("hide");
+     
 
         }
 
@@ -600,12 +600,11 @@ if (menuGrid) {
         
         if (addButton) {
        
-            event.stopPropagation();
             console.log(addButton);
             console.log(addButton.dataset.id);
             const mealId=Number(addButton.dataset.id);
             addToCart(mealId);
-            console.log("Added meal ID:", mealId);
+            console.log(" Added meal ID:", mealId);
             return;
         }
         /* Add To Cart لا يفتح أو يغلق الكارد */
@@ -647,12 +646,7 @@ function refreshMenuWithFade() {
         displayMeals();
 
         menuGrid.classList.remove("fade-out");
-        menuGrid.classList.remove("fade-in");
-
-
-        void menuGrid.offsetWidth;
-
-
+   
         menuGrid.classList.add("fade-in");
 
     }, 500);
@@ -668,8 +662,7 @@ categoryButtons.forEach(function(button) {
 
     button.addEventListener("click", function() {
 
-        currentCategory =
-            button.dataset.category;
+        currentCategory = button.dataset.category;
 
         visibleMeals = 6;
 
@@ -690,15 +683,8 @@ function loadMoreMeals() {
     if (!menuGrid) {
         return;
     }
-
-
-    const filterMeals =
-        getFilteredMeals();
-
-
-    const oldVisibleMeals =
-        visibleMeals;
-
+    const filterMeals =getFilteredMeals();
+    const oldVisibleMeals = visibleMeals;
 
     visibleMeals =
         Math.min(
@@ -714,8 +700,7 @@ function loadMoreMeals() {
         );
 
 
-    const columns =
-        menuGrid.querySelectorAll(".menu-column");
+    const columns =menuGrid.querySelectorAll(".menu-column");
 
 
     newMeals.forEach(function(meal, index) {
@@ -806,18 +791,12 @@ if (menuGrid) {
     displayMeals();
 
 }
+
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
-const cartItems =
-    document.getElementById("cartItems");
-
-const subtotalElement =
-    document.getElementById("subtotal");
-
-const deliveryElement =
-    document.getElementById("delivery");
-
-const totalElement =
-    document.getElementById("total");
+const cartItems =document.getElementById("cartItems");
+const subtotalElement =document.getElementById("subtotal");
+const deliveryElement =document.getElementById("delivery");
+const totalElement =document.getElementById("total");
 
 function displayCarts() {
     if (!cartItems) {
@@ -825,7 +804,7 @@ function displayCarts() {
     }
     cartItems.innerHTML="";
     if (cart.length===0) {
-        cartItems.innerHTML="<p>Your Cart is empty.</p>";
+        cartItems.innerHTML="<strong><p>Your Cart is empty.</p></strong>";
     updateCartTotal();
     return;
     }
@@ -966,10 +945,11 @@ function decreaseQuantity(mealId) {
 
     if (item.quantity > 1) {
         item.quantity--;
-    }
-
     saveCart();
     displayCarts();
+    }
+
+  
 }
 function removeItem(mealId) {
     cart=cart.filter(function(item){
