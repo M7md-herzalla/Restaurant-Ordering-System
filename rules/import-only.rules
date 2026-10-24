@@ -1,0 +1,33 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /meals/{mealId} {
+      allow read: if true;
+      // Replace ONLY this placeholder with your own account UID.
+      // This permission creates missing catalogue documents only; it cannot edit or delete existing meals.
+      allow create: if request.auth != null
+        && request.auth.uid == "I7ryZDgrCQVmGQGVLfH0jFN5gc52"
+        && mealId in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        && request.resource.data.keys().hasAll(["id", "name", "category", "priceFils", "currency", "calories", "ingredients", "description", "image", "available"])
+        && request.resource.data.keys().hasOnly(["id", "name", "category", "priceFils", "currency", "calories", "ingredients", "description", "image", "available"])
+        && request.resource.data.id is int
+        && request.resource.data.id == int(mealId)
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.category in ["burger", "pizza", "dessert", "drink", "special"]
+        && request.resource.data.priceFils is int
+        && request.resource.data.priceFils >= 0
+        && request.resource.data.currency == "JOD"
+        && request.resource.data.calories is int
+        && request.resource.data.calories >= 0
+        && request.resource.data.ingredients is list
+        && request.resource.data.ingredients.size() > 0
+        && request.resource.data.description is string
+        && request.resource.data.image is string
+        && request.resource.data.available is bool;
+      allow update, delete: if false;
+    }
+  }
+}

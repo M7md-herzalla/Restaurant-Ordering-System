@@ -3,8 +3,9 @@
 <head>
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu Page</title>
-   <link rel="stylesheet" href="Style.css">
+    <title>Menu | M O J</title>
+    <link rel="stylesheet" href="../Style.css">
+
     <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
@@ -13,15 +14,30 @@
     <header class="mainHeader">
         <div class="header-Logo"> M O J </div>
        
-        <nav>
+        <nav class="headerList">
        <ul>
-        <li><a href="Home.html">Home</a></li>
+        <li><a href="../Home.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="cart.html">Cart</a></li>
         <li><a href="about & contact us.html">About & Contact</a></li>
+         <li data-guest-only hidden><a href="login.html">Sign In</a></li>
+
     </ul>
         </nav>
-    
+  <nav class="profile">
+          <ul class="profile">
+        <li class="nav-account-slot"> <a
+    href="./profile.html"
+    class="account-link"
+    aria-label="My account"
+    data-user-only hidden
+  >
+    <span id="navAccountText">Sign in</span>
+    <img id="navAccountPhoto" alt="" hidden>
+  </a>
+</li>
+          </ul>
+        </nav>
     </header>
 
 <main>
@@ -41,7 +57,7 @@
         </div>
         <div class="menu-grid" id="menuGrid">
     <div class="menu-card">
-        <img src="images/burger1.png" alt="Smokey Burger">
+        <img src="../images/smoky.png" alt="Smokey Burger">
         <h3>Smokey Burger</h3> <p class="price">5.50JD</p>
    
         <div class="meal-details">
@@ -59,7 +75,7 @@
         </div>
     </div>
     <div class="menu-card">
-<img src="images/burger2.png" alt="Crispy Chicken Burger">
+<img src="../images/burger2.png" alt="Crispy Chicken Burger">
         <h3>Crispy Chicken Burger</h3>
         <p class="price">4.75JD</p>
         <div class="meal-details">
@@ -77,7 +93,7 @@
         </div>
     </div>
     <div class="menu-card">
-        <img src="images/pizza1.png" alt="Pepperoni Pizza">
+        <img src="../images/pizza1.png" alt="Pepperoni Pizza">
         <h3>Pepperoni Pizza</h3>
         <p class="price">3.00JD</p>
         <div class="meal-details">
@@ -95,7 +111,7 @@
     </div>
     </div>
     <div class="menu-card">
-      <img src="images/pizza2.png" alt="BBQ Chicken Pizza">
+      <img src="../images/pizza2.png" alt="BBQ Chicken Pizza">
         <h3>BBQ Chicken Pizza</h3>
         <p class="price">3.50JD</p>
         <div class="meal-details">
@@ -113,7 +129,7 @@
     </div>
     </div>
     <div class="menu-card">
-      <img src="images/dessert1.png" alt="Chocolate Brownie">
+      <img src="../images/dessert1.png" alt="Chocolate Brownie">
         <h3>Chocolate Brownie</h3>
         <p class="price">2.00JD</p>
         <div class="meal-details">
@@ -131,7 +147,7 @@
     </div>
     </div>
    <div class="menu-card">
-      <img src="images/drink1.png" alt="Fresh Mojito">
+      <img src="../images/drink1.png" alt="Fresh Mojito">
         <h3>Fresh Mojito</h3>
         <p class="price">1.75JD</p>
         <div class="meal-details">
@@ -195,7 +211,7 @@
 <div id="cartToast" class="cart-toast">
      Item added to cart
 </div>
-<script src="javaScript.js"></script>
 
-</body>
+ <script type="module" src="../js/firebase/header-auth.js"></script>
+<script src="../javaScript.js"></script>
 </html>

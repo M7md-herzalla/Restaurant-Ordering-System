@@ -31,243 +31,9 @@ const heroSlides = [
 ];
 
 
-const meals = [
-
-    {
-        id: 1,
-        name: "Smokey Burger",
-        category: "burger",
-        price: 5.50,
-        calories: 820,
-        ingredients: [
-            "Beef patty",
-            "Cheddar cheese",
-            "Lettuce",
-            "Tomato",
-            "Red onion",
-            "Smokey sauce"
-        ],
-        description:
-            "A juicy grilled beef burger topped with melted cheddar, fresh vegetables and our signature smokey sauce.",
-        image: "images/burger1.png"
-    },
-
-    {
-        id: 2,
-        name: "Crispy Chicken Burger",
-        category: "burger",
-        price: 4.75,
-        calories: 850,
-        ingredients: [
-            "Crispy chicken fillet",
-            "Lettuce",
-            "Pickles",
-            "Cheddar cheese",
-            "Creamy mayo sauce"
-        ],
-        description:
-            "Golden crispy chicken with fresh lettuce, pickles, melted cheese and creamy mayo in a toasted bun.",
-        image: "images/burger2.png"
-    },
-
-    {
-        id: 3,
-        name: "Pepperoni Pizza",
-        category: "pizza",
-        price: 6.00,
-        calories: 950,
-        ingredients: [
-            "Pizza dough",
-            "Tomato sauce",
-            "Mozzarella cheese",
-            "Pepperoni",
-            "Oregano"
-        ],
-        description:
-            "A classic pizza loaded with melted mozzarella, rich tomato sauce and crispy pepperoni slices.",
-        image: "images/pizza1.png"
-    },
-
-    {
-        id: 4,
-        name: "BBQ Chicken Pizza",
-        category: "pizza",
-        price: 7.00,
-        calories: 890,
-        ingredients: [
-            "Pizza dough",
-            "Grilled chicken",
-            "Mozzarella cheese",
-            "BBQ sauce",
-            "Red onion",
-            "Sweet pepper"
-        ],
-        description:
-            "Grilled chicken, melted mozzarella and red onions finished with a rich smoky BBQ sauce.",
-        image: "images/pizza2.png"
-    },
-
-    {
-        id: 5,
-        name: "Chocolate Brownie",
-        category: "dessert",
-        price: 2.00,
-        calories: 430,
-        ingredients: [
-            "Dark chocolate",
-            "Cocoa",
-            "Butter",
-            "Flour",
-            "Sugar"
-        ],
-        description:
-            "A rich and soft chocolate brownie with a fudgy center and an intense chocolate flavor.",
-        image: "images/dessert1.png"
-    },
-
-    {
-        id: 6,
-        name: "Fresh Mojito",
-        category: "drink",
-        price: 1.75,
-        calories: 140,
-        ingredients: [
-            "Fresh lime",
-            "Mint leaves",
-            "Sparkling water",
-            "Ice",
-            "Sugar syrup"
-        ],
-        description:
-            "A refreshing combination of fresh lime, mint and sparkling water served ice cold.",
-        image: "images/drink1.png"
-    },
-    {
-    id: 7,
-    name: "Double Beef Burger",
-    category: "burger",
-    price: 6.50,
-    calories: 980,
-    ingredients: [
-        "Two beef patties",
-        "Cheddar cheese",
-        "Pickles",
-        "Onion",
-        "Special sauce"
-    ],
-    description:
-        "Two juicy beef patties with melted cheddar and our signature sauce.",
-    image: "images/burger3.png"
-},
-{
-    id: 8,
-    name: "Spicy Beef Burger",
-    category: "burger",
-    price: 5.95,
-    calories: 870,
-    ingredients: [
-        "Beef patty",
-        "Cheddar cheese",
-        "Jalapenos",
-        "Lettuce",
-        "Red onion",
-        "Spicy sauce"
-    ],
-    description:
-        "A juicy beef burger with melted cheddar, fresh vegetables, jalapenos and a bold spicy sauce.",
-    image: "images/burger4.png"
-},
-{
-    id: 9,
-    name: "Margherita Pizza",
-    category: "pizza",
-    price: 5.25,
-    calories: 760,
-    ingredients: [
-        "Pizza dough",
-        "Tomato sauce",
-        "Mozzarella cheese",
-        "Fresh basil",
-        "Olive oil"
-    ],
-    description:
-        "A classic Italian-style pizza topped with rich tomato sauce, melted mozzarella and fresh basil.",
-    image: "images/pizza3.png"
-},
-{
-    id: 10,
-    name: "Four Cheese Pizza",
-    category: "pizza",
-    price: 6.75,
-    calories: 920,
-    ingredients: [
-        "Pizza dough",
-        "Mozzarella cheese",
-        "Cheddar cheese",
-        "Parmesan cheese",
-        "Blue cheese"
-    ],
-    description:
-        "A rich and creamy pizza loaded with four delicious cheeses for an intense cheesy flavor.",
-    image: "images/pizza4.png"
-},
-{
-    id: 11,
-    name: "Lotus Cheesecake",
-    category: "dessert",
-    price: 3.25,
-    calories: 510,
-    ingredients: [
-        "Cream cheese",
-        "Lotus biscuits",
-        "Lotus spread",
-        "Butter",
-        "Whipped cream"
-    ],
-    description:
-        "A creamy cheesecake topped with smooth Lotus spread and crunchy biscuit crumbs.",
-    image: "images/dessert2.png"
-},
-{
-    id: 12,
-    name: "Passion Fruit Mojito",
-    category: "drink",
-    price: 2.25,
-    calories: 160,
-    ingredients: [
-        "Passion fruit",
-        "Fresh lime",
-        "Mint leaves",
-        "Sparkling water",
-        "Ice",
-        "Sugar syrup"
-    ],
-    description:
-        "A tropical and refreshing mojito combining passion fruit, lime, mint and sparkling water.",
-    image: "images/drink2.png"
-},
-{
-    id: 13,
-    name: "Loaded Fries Meal",
-    category: "special",
-    price: 4.50,
-    calories: 950,
-
-    ingredients: [
-        "French fries",
-        "Cheddar cheese",
-        "Ketchup",
-        "Mayonnaise",
-        "Crispy toppings",
-        "Soft drink"
-    ],
-
-    description:
-        "Crispy loaded fries topped with melted cheese and signature sauces, served with a refreshing soft drink.",
-
-    image: "images/Happy meal.png"
-}
-];
+let meals = [];
+let menuReady = false;
+let menuLoading = false;
 
 const menuGrid=document.getElementById("menuGrid");
 const heroSlider = document.getElementById("heroSlider");
@@ -495,6 +261,8 @@ function getMenuColumnCount() {
 
 function displayMeals() {
 
+    if (!menuReady) return;
+
     if (!menuGrid) {
         return;
     }
@@ -503,6 +271,8 @@ function displayMeals() {
 
     const mealsToShow =
         filterMeals.slice(0, visibleMeals);
+
+    showMenuStatus(filterMeals.length ? "" : "No meals available in this category.");
 
 
 const isMobile =
@@ -541,11 +311,11 @@ for (let i = 0; i < columnCount; i++) {
             <div class="menu-card">
 
                 <img
-                    src="${meal.image}"
-                    alt="${meal.name}"
+                    src="${escapeMealText(meal.image)}"
+                    alt="${escapeMealText(meal.name)}"
                 >
 
-                <h3>${meal.name}</h3>
+                <h3>${escapeMealText(meal.name)}</h3>
 
                 <p class="price">
                     ${meal.price.toFixed(2)} JD
@@ -555,12 +325,12 @@ for (let i = 0; i < columnCount; i++) {
                 <div class="meal-details">
 
                     <p>
-                        ${meal.description}
+                        ${escapeMealText(meal.description)}
                     </p>
 
                     <p>
                         <strong>Ingredients:</strong>
-                        ${meal.ingredients.join(", ")}
+                        ${escapeMealText(meal.ingredients.join(", "))}
                     </p>
 
                     <p>
@@ -585,6 +355,7 @@ for (let i = 0; i < columnCount; i++) {
 
 
     updateLoadMoreButton(filterMeals);
+    updateCartControls();
 }
 
 
@@ -600,11 +371,8 @@ if (menuGrid) {
         
         if (addButton) {
        
-            console.log(addButton);
-            console.log(addButton.dataset.id);
             const mealId=Number(addButton.dataset.id);
             addToCart(mealId);
-            console.log(" Added meal ID:", mealId);
             return;
         }
         /* Add To Cart لا يفتح أو يغلق الكارد */
@@ -680,6 +448,8 @@ categoryButtons.forEach(function(button) {
 
 function loadMoreMeals() {
 
+    if (!menuReady) return;
+
     if (!menuGrid) {
         return;
     }
@@ -714,11 +484,11 @@ function loadMoreMeals() {
             <div class="menu-card new-card">
 
                 <img
-                    src="${meal.image}"
-                    alt="${meal.name}"
+                    src="${escapeMealText(meal.image)}"
+                    alt="${escapeMealText(meal.name)}"
                 >
 
-                <h3>${meal.name}</h3>
+                <h3>${escapeMealText(meal.name)}</h3>
 
                 <p class="price">
                     ${meal.price.toFixed(2)} JD
@@ -728,12 +498,12 @@ function loadMoreMeals() {
                 <div class="meal-details">
 
                     <p>
-                        ${meal.description}
+                        ${escapeMealText(meal.description)}
                     </p>
 
                     <p>
                         <strong>Ingredients:</strong>
-                        ${meal.ingredients.join(", ")}
+                        ${escapeMealText(meal.ingredients.join(", "))}
                     </p>
 
                     <p>
@@ -761,6 +531,7 @@ function loadMoreMeals() {
 
 
     updateLoadMoreButton(filterMeals);
+    updateCartControls();
 }
 
 
@@ -787,79 +558,47 @@ if (loadMoreBtn) {
 ========================= */
 
 if (menuGrid) {
-
-    displayMeals();
-
+    loadMenuMeals();
 }
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let cart = [];
+let cartStore = null;
+let cartState = { status: "checking", uid: null, items: [], pending: false, error: null };
+let cartActionMessage = "";
 const cartItems =document.getElementById("cartItems");
 const subtotalElement =document.getElementById("subtotal");
 const deliveryElement =document.getElementById("delivery");
 const totalElement =document.getElementById("total");
 
 function displayCarts() {
-    if (!cartItems) {
-        return;
+    if (!cartItems) return;
+    cartItems.replaceChildren();
+    if (!cart.length) {
+        const empty = document.createElement("p");
+        empty.textContent = cartState.status === "ready" ? "Your cart is empty." : "";
+        cartItems.append(empty);
     }
-    cartItems.innerHTML="";
-    if (cart.length===0) {
-        cartItems.innerHTML="<strong><p>Your Cart is empty.</p></strong>";
-    updateCartTotal();
-    return;
-    }
-    cart.forEach(function(item){
- const cartItem = `
-
-    <div class="cart-item">
-
-        <img
-            src="${item.image}"
-            alt="${item.name}"
-        >
-
-        <div class="cart-item-info">
-
-            <h3>${item.name}</h3>
-
-            <p>
-                ${item.price.toFixed(2)} JD
-            </p>
-
-            <div class="quantity-control">
-
-                <button
-                    class="decrease-btn"
-                    data-id="${item.id}">
-                    -
-                </button>
-
-                <span>
-                    ${item.quantity}
-                </span>
-
-                <button
-                    class="increase-btn"
-                    data-id="${item.id}">
-                    +
-                </button>
-
-                 <button
-                 class="remove-btn"
-                data-id="${item.id}">
-                Remove
-                </button>
-
+    for (const item of cart) {
+        const price = item.available ? (item.priceFils / 1000).toFixed(2) + " JD" : "No longer available";
+        const image = item.image ? '<img src="' + escapeMealText(item.image) + '" alt="' + escapeMealText(item.name) + '">' : "";
+        cartItems.insertAdjacentHTML("beforeend", `
+          <div class="cart-item">
+            ${image}
+            <div class="cart-item-info">
+              <h3>${escapeMealText(item.name)}</h3>
+              <p>${price}</p>
+              <div class="quantity-control">
+                <button type="button" class="decrease-btn" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+                <span>${item.quantity}</span>
+                <button type="button" class="increase-btn" data-id="${item.id}" aria-label="Increase quantity">+</button>
+                <button type="button" class="remove-btn" data-id="${item.id}">Remove</button>
+              </div>
             </div>
-
-        </div>
-
-    </div>
-`;
-        cartItems.insertAdjacentHTML("beforeend",cartItem);
-    });
+          </div>
+        `);
+    }
     updateCartTotal();
-  
+    updateCartControls();
 }
 
 const contactForm=document.getElementById("contactForm");
@@ -920,44 +659,18 @@ if (contactForm) {
     });
 }
 
-function increaseQuantity(mealId){
-const item=cart.find(function(item){
-    return item.id===mealId;
-});
-if (!item) {
-    return;
+function increaseQuantity(mealId) {
+    return performCartAction("increase", mealId);
 }
-    item.quantity++;
 
-    saveCart();
-
-    displayCarts();
-}
 function decreaseQuantity(mealId) {
-
-    const item = cart.find(function(item) {
-        return item.id === mealId;
-    });
-
-    if (!item) {
-        return;
-    }
-
-    if (item.quantity > 1) {
-        item.quantity--;
-    saveCart();
-    displayCarts();
-    }
-
-  
+    return performCartAction("decrease", mealId);
 }
+
 function removeItem(mealId) {
-    cart=cart.filter(function(item){
-        return item.id!==mealId;
-    });
-    saveCart();
-    displayCarts();
+    return performCartAction("remove", mealId);
 }
+
 if (cartItems) {
     cartItems.addEventListener("click",function(event){
         const increaseBtn=event.target.closest(".increase-btn")
@@ -998,34 +711,25 @@ if (removeBtn) {
     });
 }
 
+function cartSubtotalFils() {
+    return cart.reduce((total, item) => total + (item.available ? item.priceFils * item.quantity : 0), 0);
+}
+
+function cartDeliveryFils() {
+    return cart.some(item => item.available) ? 1500 : 0;
+}
+
 function updateCartTotal() {
-    if (!subtotalElement || !deliveryElement || !totalElement) {
-        return;
-    }
-    let subtotal=0;
-    cart.forEach(function(item){
-        subtotal+=item.price*item.quantity;
-    });
-    let delivery=0;
-    if (cart.length>0) {
-        delivery=1.50;
-    }
-    const total=subtotal+delivery;
-
-    subtotalElement.textContent =
-        subtotal.toFixed(2) + " JD";
-
-    deliveryElement.textContent =
-        delivery.toFixed(2) + " JD";
-
-    totalElement.textContent =
-        total.toFixed(2) + " JD";
+    if (!subtotalElement || !deliveryElement || !totalElement) return;
+    const subtotal = cartSubtotalFils();
+    const delivery = cartDeliveryFils();
+    subtotalElement.textContent = (subtotal / 1000).toFixed(2) + " JD";
+    deliveryElement.textContent = (delivery / 1000).toFixed(2) + " JD";
+    totalElement.textContent = ((subtotal + delivery) / 1000).toFixed(2) + " JD";
+    const previewTotal = document.getElementById("orderTotal");
+    if (previewTotal) previewTotal.textContent = totalElement.textContent;
 }
 
-function saveCart(){
-    localStorage.setItem("cart",JSON.stringify(cart)
-);
-}
 const checkoutBtn=document.getElementById("checkoutBtn");
 const checkoutModal = document.getElementById("checkoutModal");
 const closeCheckoutModal = document.getElementById("closeCheckoutModal");
@@ -1035,15 +739,12 @@ const orderForm = document.getElementById("orderForm");
    
 if (checkoutBtn) {
         checkoutBtn.addEventListener("click",function () {
+            if (!canUseCart() || !cart.length || cart.some(item => !item.available)) return;
             if (cart.length===0) {
                 alert("Your cart is empty");
                 return;
             }
-            let subtotal=0;
-            cart.forEach(function(item){
-                subtotal+=item.price*item.quantity;
-            });
-            const total=subtotal+1.50;
+            const total = (cartSubtotalFils() + cartDeliveryFils()) / 1000;
             orderTotal.textContent=total.toFixed(2)+" JD"
             checkoutModal.classList.add("show");
             
@@ -1069,6 +770,7 @@ if (checkoutModal) {
 if (orderForm) {
     orderForm.addEventListener("submit", function(event) {
         event.preventDefault();
+        if (!canUseCart() || !cart.length || cart.some(item => !item.available)) return;
 
         const orderName = document.getElementById("orderName").value.trim();
         const orderPhone = document.getElementById("orderPhone").value.trim();
@@ -1092,14 +794,7 @@ if (orderForm) {
             return;
         }
 
-        alert("Order confirmed successfully!");
-
-        orderForm.reset();
-        checkoutModal.classList.remove("show");
-
-        localStorage.removeItem("cart");
-        cart = [];
-        displayCart();
+        alert("Ordering is not available yet. Your cart has been saved.");
     });
 }
 
@@ -1124,35 +819,9 @@ const cartToast =document.getElementById("cartToast");
 
 
 function addToCart(mealId) {
-    const meal=meals.find(function(meal){
-        return meal.id===mealId;
-    });
-    if (!meal) {
-        return;
-    }
-
-const existingMeal=cart.find(function(item){
-  return item.id === mealId;
-});
-if(existingMeal){
-    existingMeal.quantity++;
-
-}
-else{
-    cart.push({
-
-            id: meal.id,
-            name: meal.name,
-            price: meal.price,
-            image: meal.image,
-            quantity: 1
-    });
+    return performCartAction("add", mealId);
 }
 
-    saveCart();
-    showCartToast(meal.name);
-    console.log(cart);
-}
 if (cartItems) {
 
     displayCarts();
@@ -1160,3 +829,235 @@ if (cartItems) {
 }
 
 
+
+
+/* =========================
+   FIRESTORE MENU
+========================= */
+
+function escapeMealText(value) {
+    const characters = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+    return String(value).replace(/[&<>"']/g, character => characters[character]);
+}
+
+function showMenuStatus(text, retry = false) {
+    if (!menuGrid) return;
+    let box = document.getElementById("menuDataStatus");
+    if (!box) {
+        box = document.createElement("div");
+        box.id = "menuDataStatus";
+        box.setAttribute("role", "status");
+        box.style.textAlign = "center";
+        box.style.padding = "16px";
+        menuGrid.before(box);
+    }
+    box.replaceChildren();
+    box.style.display = text ? "block" : "none";
+    if (!text) return;
+    const message = document.createElement("p");
+    message.textContent = text;
+    box.append(message);
+    if (retry) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "Try again";
+        button.addEventListener("click", loadMenuMeals);
+        box.append(button);
+    }
+}
+
+async function loadMenuMeals() {
+    if (!menuGrid || menuLoading) return;
+    menuLoading = true;
+    menuReady = false;
+    menuGrid.innerHTML = "";
+    menuGrid.setAttribute("aria-busy", "true");
+    showMenuStatus("Loading meals…");
+    if (loadMoreBtn) {
+        loadMoreBtn.disabled = true;
+        loadMoreBtn.style.display = "none";
+    }
+    try {
+        const { fetchMeals } = await import("./js/firebase/meals-service.js");
+        meals = await fetchMeals();
+        menuReady = true;
+        displayMeals();
+    } catch (error) {
+        showMenuStatus("Could not load the menu. Check your connection and try again.", true);
+        console.error("Menu loading error:", error);
+    } finally {
+        menuLoading = false;
+        menuGrid.setAttribute("aria-busy", "false");
+        if (loadMoreBtn) loadMoreBtn.disabled = false;
+    }
+}
+
+if (menuGrid) {
+    let previousMenuColumns = getMenuColumnCount();
+    let menuResizeFrame = 0;
+    window.addEventListener("resize", () => {
+        cancelAnimationFrame(menuResizeFrame);
+        menuResizeFrame = requestAnimationFrame(() => {
+            const nextColumns = getMenuColumnCount();
+            if (nextColumns !== previousMenuColumns) {
+                previousMenuColumns = nextColumns;
+                if (menuReady) displayMeals();
+            }
+        });
+    });
+}
+
+
+/* =========================
+   ACCOUNT CART UI
+========================= */
+
+function canUseCart() {
+    return cartState.status === "ready" && Boolean(cartState.uid) && !cartState.pending;
+}
+
+function getLoginUrl() {
+    return document.querySelector("[data-guest-only] a")?.href || new URL("./pages/login.html", document.baseURI).href;
+}
+
+function updateCartControls() {
+    const enabled = canUseCart();
+    document.querySelectorAll(".add-cart").forEach(button => {
+        // Guests may click to open Sign in; mutations still require a verified user.
+        button.disabled = cartState.status !== "guest" && !enabled;
+    });
+    document.querySelectorAll(".quantity-control button").forEach(button => {
+        const item = cart.find(entry => entry.id === Number(button.dataset.id));
+        const remove = button.classList.contains("remove-btn");
+        const increase = button.classList.contains("increase-btn");
+        const decrease = button.classList.contains("decrease-btn");
+        button.disabled = !enabled || !item || (!remove && !item.available) ||
+            (increase && item.quantity >= 50) || (decrease && item.quantity <= 1);
+    });
+    const checkoutAllowed = enabled && cart.length > 0 && cart.every(item => item.available);
+    const checkout = document.getElementById("checkoutBtn");
+    const confirm = document.getElementById("confirmOrderBtn");
+    if (checkout) checkout.disabled = !checkoutAllowed;
+    if (confirm) confirm.disabled = !checkoutAllowed;
+}
+
+function renderCartNotice() {
+    const root = cartItems || menuGrid;
+    if (!root) return;
+    let box = document.getElementById("accountCartStatus");
+    if (!box) {
+        box = document.createElement("div");
+        box.id = "accountCartStatus";
+        box.setAttribute("role", "status");
+        box.style.textAlign = "center";
+        box.style.padding = "12px";
+        root.before(box);
+    }
+    let text = cartActionMessage;
+    if (!text && cartState.status === "checking") text = "Checking your cart…";
+    if (!text && cartState.status === "loading") text = "Syncing your cart…";
+    if (!text && cartState.status === "guest") text = "Sign in to save your own cart.";
+    if (!text && cartState.status === "error") text = "Could not load your cart. Please try again.";
+    if (!text && cart.some(item => !item.available)) text = "Remove unavailable meals before continuing.";
+    if (!text && cartState.pending) text = "Saving your cart…";
+    box.replaceChildren();
+    box.style.display = text ? "block" : "none";
+    box.style.color = cartState.status === "error" || cartActionMessage ? "#b91c1c" : "inherit";
+    if (!text) return;
+    const message = document.createElement("p");
+    message.textContent = text;
+    box.append(message);
+    if (cartState.status === "error") {
+        const retry = document.createElement("button");
+        retry.type = "button";
+        retry.textContent = "Try again";
+        retry.addEventListener("click", () => {
+            cartActionMessage = "";
+            if (cartStore) cartStore.refresh();
+            else initializeAccountCart();
+        });
+        box.append(retry);
+    }
+}
+
+function onCartState(next) {
+    const changedAccount = cartState.uid !== next.uid;
+    cartState = next;
+    cart = next.items;
+    if (changedAccount) {
+        cartActionMessage = "";
+        document.getElementById("checkoutModal")?.classList.remove("show");
+        document.getElementById("orderForm")?.reset();
+        const toast = document.getElementById("cartToast");
+        toast?.classList.remove("show");
+    }
+    if (!cart.length || cart.some(item => !item.available)) {
+        document.getElementById("checkoutModal")?.classList.remove("show");
+    }
+    displayCarts();
+    updateCartControls();
+    renderCartNotice();
+    if (next.status === "guest" && cartItems) window.location.replace(getLoginUrl());
+}
+
+async function performCartAction(action, mealId) {
+    if (cartState.status === "guest") {
+        window.location.assign(getLoginUrl());
+        return;
+    }
+    if (!cartStore || !canUseCart()) return;
+    const uid = cartState.uid;
+    cartActionMessage = "";
+    try {
+        await cartStore[action](mealId);
+        if (cartState.uid !== uid) return;
+        if (action === "add") {
+            const name = meals.find(meal => meal.id === mealId)?.name || "Meal";
+            showCartToast(name);
+        }
+    } catch (error) {
+        if (cartState.uid !== uid) return;
+        const errors = {
+            "cart/quantity-limit": "You can add up to 50 of each meal.",
+            "cart/meal-unavailable": "This meal is no longer available.",
+            "cart/session-changed": "Your session changed. Please try again.",
+            "permission-denied": "Could not save your cart. Please try again.",
+            "unavailable": "Check your internet connection and try again."
+        };
+        cartActionMessage = errors[error.code] || "Could not save your cart. Please try again.";
+        renderCartNotice();
+        console.error("Cart update error:", error);
+    }
+}
+
+async function initializeAccountCart() {
+    if (!menuGrid && !cartItems) return;
+    if (cartStore) return;
+    cartState = { status: "checking", uid: null, items: [], pending: false, error: null };
+    cart = [];
+    updateCartControls();
+    renderCartNotice();
+    try {
+        const { createCartStore } = await import("./js/firebase/cart-service.js");
+        cartStore = createCartStore(onCartState);
+    } catch (error) {
+        onCartState({ status: "error", uid: null, items: [], pending: false, error });
+        console.error("Cart connection error:", error);
+    }
+}
+
+initializeAccountCart();
+
+// A bfcache-restored page must verify the current account again.
+window.addEventListener("pagehide", () => {
+    cartStore?.destroy();
+    cartStore = null;
+    cart = [];
+    cartState = { status: "checking", uid: null, items: [], pending: false, error: null };
+    document.getElementById("cartItems")?.replaceChildren();
+    document.getElementById("checkoutModal")?.classList.remove("show");
+    document.getElementById("orderForm")?.reset();
+});
+window.addEventListener("pageshow", event => {
+    if (event.persisted) initializeAccountCart();
+});

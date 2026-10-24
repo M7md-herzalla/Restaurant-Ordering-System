@@ -3,8 +3,9 @@
 <head>
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
-    <link rel="stylesheet" href="Style.css">
+    <title>Cart | M O J</title>
+    <link rel="stylesheet" href="../Style.css">
+
     <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
@@ -12,15 +13,30 @@
     <header class="mainHeader">
         <div class="header-Logo"> M O J </div>
        
-        <nav>
+        <nav class="headerList">
       <ul>
-        <li><a href="Home.html">Home</a></li>
+        <li><a href="../Home.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="cart.html">Cart</a></li>
         <li><a href="about & contact us.html">About & Contact</a></li>
+        <li data-guest-only hidden><a href="login.html">Sign In</a></li>
+
     </ul>
         </nav>
-    
+   <nav class="profile">
+          <ul class="profile">
+        <li class="nav-account-slot"> <a
+    href="./profile.html"
+    class="account-link"
+    aria-label="My account"
+    data-user-only hidden
+  >
+    <span id="navAccountText">Sign in</span>
+    <img id="navAccountPhoto" alt="" hidden>
+  </a>
+</li>
+          </ul>
+        </nav>
     </header>
 <main>
     <br><br><br><br>
@@ -142,7 +158,7 @@
         </form>
     </div>
 </div>
-
-<script src="javaScript.js"></script>
+ <script type="module" src="../js/firebase/header-auth.js"></script>
+<script src="../javaScript.js"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "name": "restaurant-ordering-system",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open /pages/login.html",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^13.1.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}
