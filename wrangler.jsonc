@@ -1,0 +1,8 @@
+{
+  "name": "restaurant-ordering-system",
+  "compatibility_date": "2026-10-26",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
