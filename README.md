@@ -12,6 +12,6 @@ A restaurant website built with HTML, CSS, vanilla JavaScript, and Firebase — 
 
 ### Live Demo
 
-[Check it out here](https://moj-resturant.netlify.app)
+[Check it out here](https://restaurant-ordering-system.mohammadherzalla591.workers.dev)
 
 🚧 Work in progress — orders and online payments are coming next!
