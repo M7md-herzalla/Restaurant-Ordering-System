@@ -1,5 +1,8 @@
 import { auth,googleProvider } from "./firebase-config.js"; 
-import { createUserWithEmailAndPassword,updateProfile,signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword,updateProfile,signInWithPopup,sendEmailVerification } from "firebase/auth";
+export function initRegister(navigate) {
+  const controller =new AbortController();
+  const {signal}=controller;
 
 const form=document.getElementById("registerForm");
 const button=document.getElementById("registerBtn");
@@ -101,8 +104,20 @@ catch(profileError){
 console.error("Profile update error:", profileError.code);
 
 }
+if (!credential.user.emailVerified) {
+  try{
+    await sendEmailVerification(credential.user);
+
+  }catch(verificationError){
+    console.error("Verification email error",verificationError.code);
+  }
+}
  form.reset();
- window.location.replace("./profile.html");
+
+if (signal.aborted) {
+  return;
+}
+navigate("/profile",{replace:true});
 }
 catch(error){
     message.textContent =
@@ -121,7 +136,7 @@ button.textContent = "Create Account";
 
 
 
-});
+},{ signal });
 button.disabled = false;
 message.textContent = "";
 passwordHelp.hidden=true;
@@ -139,14 +154,14 @@ document.querySelectorAll(".password-toggle").forEach(toggle=>{
     );
     toggle.textContent = showPassword ? "🧐" : "😣";
 
-    });
+    },{ signal });
 });
 document
   .getElementById("registerConfirmPassword")
   .addEventListener("input", () => {
     passwordHelp.hidden = true;
     passwordHelp.textContent = "";
-  });
+  },{ signal });
   const googleButtonText =
   document.getElementById("googleButtonText");
   const googleErrorMessages = {
@@ -176,7 +191,9 @@ button.disabled = true;
 
 try{
     await signInWithPopup(auth,googleProvider);
-    window.location.replace("./profile.html")
+      if (signal.aborted) return;
+
+    navigate("/profile", { replace: true })
     message.textContent="Signed in successfully with Google";
 
 }
@@ -192,5 +209,12 @@ catch (error) {
   googleButton.disabled = false;
   googleButtonText.textContent = "Continue with Google";
 }
-});
+},{ signal });
 googleButton.disabled = false;
+
+
+  return ()=>controller.abort();
+}
+
+
+

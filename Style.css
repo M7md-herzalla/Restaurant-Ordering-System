@@ -237,9 +237,14 @@ nav.headerList {
   margin-top: 30px;
   padding: 15px 40px;
   background-color: #020202;
+  border-radius: 15px;
   color: antiquewhite;
   font-size: 20px;
   box-shadow: 0 2px 8px rgba(45, 45, 45, 0.5);
+}
+a.order-Now {
+  display: inline-block;
+  text-decoration: none;
 }
 
 .order-Now:hover {
@@ -1801,6 +1806,27 @@ body > .mainHeader + main > br {
   width: 56px;
   height: 56px;
   font-size: 24px;
+}
+.verification-panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #e5c878;
+  border-radius: 10px;
+  background: #fffbeb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#verificationActions {
+  display: grid;
+  gap: 10px;
+}
+
+.verification-panel[data-state="verified"] {
+  color: #166534;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
 }
 
 @media (hover: hover) and (pointer: fine) {

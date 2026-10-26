@@ -4,3 +4,25 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# تحويل روابط الدخول والبروفايل القديمة
+[[redirects]]
+  from = "/pages/login.html"
+  to = "/login"
+  status = 301
+
+[[redirects]]
+  from = "/pages/profile.html"
+  to = "/profile"
+  status = 301
+
+[[redirects]]
+  from = "/Home.html"
+  to = "/home"
+  status = 301
+
+# هذه القاعدة تبقى آخر قاعدة
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

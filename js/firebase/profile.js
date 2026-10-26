@@ -1,6 +1,13 @@
 import { auth } from "./firebase-config.js";
 import { requireAuth } from "./auth-guard.js";
-import { updateProfile, signOut,sendPasswordResetEmail } from "firebase/auth";
+import { updateProfile, signOut,sendPasswordResetEmail,sendEmailVerification,reload,getIdToken, reauthenticateWithCredential } from "firebase/auth";
+import { currentDocument } from "firebase/firestore/pipelines";
+
+
+export function initProfile(navigate) {
+  const controller = new AbortController();
+  const { signal } = controller;
+
 
 const content = document.getElementById("profileContent");
 const status = document.getElementById("profileStatus");
@@ -13,6 +20,14 @@ const saveButton = document.getElementById("saveProfileBtn");
 const logoutButton = document.getElementById("logoutBtn");
 const message = document.getElementById("profileMessage");
 const passwordButton = document.getElementById("changePasswordBtn");
+const verificationPanel =document.getElementById("verificationPanel");
+const verificationStatus =document.getElementById("verificationStatus");
+const verificationActions =document.getElementById("verificationActions");
+const verificationMessage =document.getElementById("verificationMessage");
+const resendVerificationButton =document.getElementById("resendVerificationBtn");
+const checkVerificationButton =document.getElementById("checkVerificationBtn");
+
+let lastVerificationSentAt = 0;
 
 let currentUser = null;
 let busy = false;
@@ -24,8 +39,20 @@ function setBusy(value) {
   logoutButton.disabled = value || !currentUser;
   nameInput.disabled = value || !currentUser;
   passwordButton.disabled = value || !currentUser;
+  renderVerification();
 }
 
+  function renderVerification() {
+   const verified =Boolean(currentUser?.emailVerified);
+    verificationStatus.textContent = verified ? "✓ Email verified" : "Please verify your email before placing an order.";
+    verificationPanel.dataset.state =
+    verified ? "verified" : "pending";
+    verificationActions.hidden = !currentUser || verified;
+    resendVerificationButton.disabled = busy || !currentUser;
+    checkVerificationButton.disabled = busy || !currentUser;
+    
+  
+  }
 function updateAvatar(user) {
   const text = user.displayName?.trim() || user.email || "?";
   avatar.textContent = Array.from(text)[0].toUpperCase();
@@ -45,7 +72,7 @@ image.src=user.photoURL;
 
 }
 
-requireAuth((user) => {
+const unsubscribeAuth =requireAuth((user)=>{
   currentUser = user;
   passwordButton.hidden= !user.providerData.some(
     item=>item.providerId==="password"
@@ -65,13 +92,24 @@ requireAuth((user) => {
   status.hidden = true;
   content.hidden = false;
   setBusy(busy);
-}, (error) => {
+  
+}, 
+
+(error) => {
   currentUser = null;
   content.hidden = true;
   status.hidden = false;
   status.textContent = "Could not check your session. Please reload the page.";
   setBusy(false);
   console.error("Profile session error:", error);
+
+
+},()=>{
+  currentUser=null;
+  content.hidden=true;
+  if(!signal.aborted){
+    navigate("/login",{replace:true});
+  }
 });
 
 form.addEventListener("submit",async(event)=>{
@@ -113,7 +151,7 @@ catch (error) {
     saveButton.textContent = "Save changes";
 }
 
-});
+},{signal});
 
 logoutButton.addEventListener("click",async()=>{
     if (busy || !currentUser) {
@@ -127,8 +165,12 @@ logoutButton.addEventListener("click",async()=>{
         await signOut(auth);
         currentUser=null;
         content.hidden=true;
-        window.location.replace("./login.html");
+        
+        if(signal.aborted) {
+            return;
+        }
 
+      navigate("/login", { replace: true });
     }
     catch(error){
         message.dataset.state="error";
@@ -140,7 +182,7 @@ logoutButton.addEventListener("click",async()=>{
     setBusy(false);
     logoutButton.textContent = "Sign out";
   }
-})
+},{signal})
 passwordButton.addEventListener("click", async () => {
   const user = currentUser;
 
@@ -178,4 +220,90 @@ passwordButton.addEventListener("click", async () => {
     setBusy(false);
     passwordButton.textContent = "Change password";
   }
-});
+},{signal});
+
+
+verificationPanel.addEventListener("click",async event => {
+  const button=event.target.closest("button[data-verification]");
+  const user =currentUser;
+  if (busy || !button || !user || user.uid!==auth.currentUser?.uid || user.emailVerified) {
+    return;
+  }
+  const action =button.dataset.verification;
+  if (action==="send" && Date.now() - lastVerificationSentAt<60000) {
+    verificationMessage.dataset.state = "info";
+    verificationMessage.textContent =
+      "Please wait one minute before requesting another email.";
+    return;
+  }
+
+  function stillHere(){
+    return(
+      !signal.aborted && currentUser?.uid ===user.uid && auth.currentUser?.uid === user.uid
+    );
+  }
+  
+  setBusy(true);
+  verificationMessage.textContent="";
+
+  try{
+    if (action === "send") {
+      await sendEmailVerification(user);
+      if (!stillHere()) {
+        return;
+      }
+      lastVerificationSentAt=Date.now();
+      verificationMessage.dataset.state = "info";
+      verificationMessage.textContent =
+        "Verification email sent. Check your inbox and spam folder.";
+    }
+     else if (action === "check") {
+      await reload(user);
+      if (!stillHere()) {
+        return;
+      }
+      if (!user.emailVerified) {
+        verificationMessage.dataset.state = "info";
+        verificationMessage.textContent =
+          "Your email is not verified yet. Open the link in your email first.";
+        return;
+
+     }
+      await getIdToken(user, true);
+
+      if (!stillHere()) return;
+      currentUser = auth.currentUser;
+
+      verificationMessage.dataset.state = "success";
+      verificationMessage.textContent =
+        "Your email has been verified successfully.";
+    }
+
+}
+catch(error){
+  if (!stillHere()) {
+    return;
+  }
+   verificationMessage.dataset.state = "error";
+    verificationMessage.textContent =
+      error.code === "auth/too-many-requests"
+        ? "Too many attempts. Please try again later."
+        : "Could not complete the request. Please try again.";
+
+    console.error("Email verification error:", error.code);
+}
+finally {
+    if (stillHere()) {
+      setBusy(false);
+    }
+  }
+}, { signal }); // نهاية حدث الضغط
+
+// تنظيف الصفحة يُرجع من initProfile نفسها.
+return () => {
+  controller.abort();
+  unsubscribeAuth();
+  currentUser = null;
+};
+
+} // نهاية initProfile

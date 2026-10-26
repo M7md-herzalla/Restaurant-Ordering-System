@@ -1,3 +1,9 @@
+
+import { auth } from "./js/firebase/firebase-config.js";
+export function initSitePage(navigate) {
+  const controller = new AbortController();
+  const { signal } = controller;
+
 /* =========================
    HOME HERO SLIDER
 ========================= */
@@ -183,7 +189,7 @@ if (header && hero) {
 
         }
 
-    });
+    }, { signal });
 
 }
 
@@ -744,6 +750,7 @@ if (checkoutBtn) {
                 alert("Your cart is empty");
                 return;
             }
+            if (!requireVerifiedEmail()) return;
             const total = (cartSubtotalFils() + cartDeliveryFils()) / 1000;
             orderTotal.textContent=total.toFixed(2)+" JD"
             checkoutModal.classList.add("show");
@@ -770,6 +777,7 @@ if (checkoutModal) {
 if (orderForm) {
     orderForm.addEventListener("submit", function(event) {
         event.preventDefault();
+        if (!requireVerifiedEmail()) return;
         if (!canUseCart() || !cart.length || cart.some(item => !item.available)) return;
 
         const orderName = document.getElementById("orderName").value.trim();
@@ -800,6 +808,7 @@ if (orderForm) {
 
 let toastTimer;
 function showCartToast(mealName) {
+    if (signal.aborted) return;
 const cartToast =document.getElementById("cartToast");
     if(!cartToast){
         return;
@@ -841,6 +850,7 @@ function escapeMealText(value) {
 }
 
 function showMenuStatus(text, retry = false) {
+    if (signal.aborted) return;
     if (!menuGrid) return;
     let box = document.getElementById("menuDataStatus");
     if (!box) {
@@ -880,6 +890,9 @@ async function loadMenuMeals() {
     try {
         const { fetchMeals } = await import("./js/firebase/meals-service.js");
         meals = await fetchMeals();
+        if (signal.aborted) {
+            return;
+        }
         menuReady = true;
         displayMeals();
     } catch (error) {
@@ -904,7 +917,7 @@ if (menuGrid) {
                 if (menuReady) displayMeals();
             }
         });
-    });
+    }, { signal });
 }
 
 
@@ -917,10 +930,11 @@ function canUseCart() {
 }
 
 function getLoginUrl() {
-    return document.querySelector("[data-guest-only] a")?.href || new URL("./pages/login.html", document.baseURI).href;
+      return "/login";
 }
 
 function updateCartControls() {
+    if (signal.aborted) return;
     const enabled = canUseCart();
     document.querySelectorAll(".add-cart").forEach(button => {
         // Guests may click to open Sign in; mutations still require a verified user.
@@ -942,6 +956,7 @@ function updateCartControls() {
 }
 
 function renderCartNotice() {
+    if (signal.aborted) return;
     const root = cartItems || menuGrid;
     if (!root) return;
     let box = document.getElementById("accountCartStatus");
@@ -981,6 +996,7 @@ function renderCartNotice() {
 }
 
 function onCartState(next) {
+    if (signal.aborted) return;
     const changedAccount = cartState.uid !== next.uid;
     cartState = next;
     cart = next.items;
@@ -997,12 +1013,12 @@ function onCartState(next) {
     displayCarts();
     updateCartControls();
     renderCartNotice();
-    if (next.status === "guest" && cartItems) window.location.replace(getLoginUrl());
+    if (next.status === "guest" && cartItems) navigate(getLoginUrl(), { replace: true });
 }
 
 async function performCartAction(action, mealId) {
     if (cartState.status === "guest") {
-        window.location.assign(getLoginUrl());
+        navigate(getLoginUrl(),{replace:true})
         return;
     }
     if (!cartStore || !canUseCart()) return;
@@ -1039,6 +1055,9 @@ async function initializeAccountCart() {
     renderCartNotice();
     try {
         const { createCartStore } = await import("./js/firebase/cart-service.js");
+        if (signal.aborted) {
+            return;
+        }
         cartStore = createCartStore(onCartState);
     } catch (error) {
         onCartState({ status: "error", uid: null, items: [], pending: false, error });
@@ -1057,7 +1076,29 @@ window.addEventListener("pagehide", () => {
     document.getElementById("cartItems")?.replaceChildren();
     document.getElementById("checkoutModal")?.classList.remove("show");
     document.getElementById("orderForm")?.reset();
-});
+}, { signal });
 window.addEventListener("pageshow", event => {
     if (event.persisted) initializeAccountCart();
-});
+}, { signal });
+
+function requireVerifiedEmail() {
+  if (auth.currentUser?.emailVerified) {
+    return true;
+  }
+
+  alert("Please verify your email from your profile first.");
+  navigate("/profile");
+
+  return false;
+}
+
+ return () => {
+    controller.abort();
+
+    clearInterval(sliderInterval);
+    clearTimeout(toastTimer);
+
+    cartStore?.destroy();
+    cartStore = null;
+  };
+}

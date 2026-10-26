@@ -3,10 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./pages/login.html">
-  <title>M O J</title>
+
+  <title>MOJ</title>
+  <link rel="stylesheet" href="/Style.css">
 </head>
 <body>
-  <a href="./pages/login.html">Continue to sign in</a>
+
+  <header class="mainHeader" id="mainHeader">
+        <div class="header-Logo"> M O J </div>
+       
+        <nav class="headerList">
+       <ul class="headerList">
+        <li><a href="/home" data-link>Home</a></li>
+        <li><a href="/menu" data-link>Menu</a></li>
+        <li><a href="/cart" data-link>Cart</a></li>
+        <li><a href="/about" data-link>About & Contact</a></li>
+        <li data-guest-only hidden ><a href="/login" data-link>Sign In</a></li>
+
+
+    </ul>
+        </nav>
+        <nav class="profile">
+          <ul class="profile">
+        <li class="nav-account-slot"> <a
+  href="/profile"
+  class="account-link"
+  aria-label="My account"
+  data-link
+  data-user-only
+  hidden
+>
+  <span id="navAccountText"></span>
+  <img id="navAccountPhoto" alt="" hidden>
+</a>
+</li>
+          </ul>
+        </nav>
+    
+    </header>
+  <div id="app"></div>
+
+<footer class="main-footer">
+<div class="footer-grid">
+<div>
+    <h2> M O J </h2>
+         <p>
+                Fresh food, fast delivery, and great taste every day.
+         </p>
+</div>
+<div>
+    <h2>Quick Links</h2>
+    <ul>
+  <li><a href="/home" data-link>Home</a></li>
+  <li><a href="/menu" data-link>Menu</a></li>
+  <li><a href="/cart" data-link>Cart</a></li>
+  <li><a href="/about" data-link>About & Contact</a></li>
+</ul>
+</div>
+<div>
+    <h2>Contact Us</h2>
+       <p>Phone: +962 7 9000 0000</p>
+            <p>Email: info@restaurant.com</p>
+            <p>Amman, Jordan</p>
+</div>
+<div>
+    <h2>Opening Hours</h2>
+            <p>Sun - Thu: 10 AM - 12 AM</p>
+            <p>Fri - Sat: 12 PM - 10 PM</p>
+</div>
+
+  
+</div>
+  <p class="copyright">
+        © 2026 Restaurant Name. All rights reserved.
+    </p>
+</footer>  
+  <script type="module" src="/js/firebase/router.js"></script>
+  <script type="module" src="/js/firebase/header-auth.js"></script>
 </body>
-</html>

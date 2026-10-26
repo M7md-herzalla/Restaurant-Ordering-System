@@ -1,5 +1,8 @@
 import { auth, googleProvider } from "./firebase-config.js";
 import {signInWithEmailAndPassword,signInWithPopup,sendPasswordResetEmail} from "firebase/auth";
+export function initLogin(navigate) {
+  const controller =new AbortController();
+  const {signal}=controller;
 
 const form =document.getElementById("loginForm");
 const emailInput =document.getElementById("loginEmail");
@@ -63,7 +66,10 @@ async function signIn(method) {
         }
             message.dataset.state = "success";
             message.textContent = "Signed in successfully!";
-            window.location.replace("./profile.html");
+            if (signal.aborted) {
+                return;
+              }
+          navigate("/profile",{replace:true});
     }
     catch(error){
         message.dataset.state=error.code==="auth/popup-closed-by-user"?"info":"error";
@@ -83,11 +89,11 @@ async function signIn(method) {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   signIn("email");
-});
+},{ signal });
 
 googleButton.addEventListener("click", () => {
   signIn("google");
-});
+},{ signal });
 
 toggleButton.addEventListener("click",()=>{
 const showPassword=passwordInput.type==="password";
@@ -100,7 +106,7 @@ toggleButton.setAttribute("aria-pressed", String(showPassword));
     showPassword ? "Hide password" : "Show password"
   );
 
-});
+},{ signal });
 forgotButton.addEventListener("click",async()=>{
     if (busy) {
         return;
@@ -149,11 +155,15 @@ finally {
     forgotButton.textContent="Forgot password?";
 
 }
-});
+},{ signal });
 forgotButton.disabled = false;
 loginButton.disabled=false;
 googleButton.disabled=false;
 message.textContent = "";
 
 
+
+
+  return ()=>controller.abort();
+}
 
