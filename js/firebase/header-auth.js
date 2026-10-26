@@ -7,7 +7,6 @@ const accountPhoto = document.getElementById("navAccountPhoto");
 
 if (accountLink && accountText && accountPhoto) {
 const profileURL=accountLink.href;
-const LoginURL=new URL("./login.html",profileURL).href;
 
 
 function updateHeader(user){

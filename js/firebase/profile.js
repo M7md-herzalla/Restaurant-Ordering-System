@@ -1,7 +1,14 @@
 import { auth } from "./firebase-config.js";
 import { requireAuth } from "./auth-guard.js";
-import { updateProfile, signOut,sendPasswordResetEmail,sendEmailVerification,reload,getIdToken, reauthenticateWithCredential } from "firebase/auth";
-import { currentDocument } from "firebase/firestore/pipelines";
+
+import {
+  updateProfile,
+  signOut,
+  sendPasswordResetEmail,
+  sendEmailVerification,
+  reload,
+  getIdToken
+} from "firebase/auth";
 
 
 export function initProfile(navigate) {

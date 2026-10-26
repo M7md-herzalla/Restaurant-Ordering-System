@@ -11,25 +11,25 @@ export function initSitePage(navigate) {
 const heroSlides = [
 
     {
-        image: "images/hero1.png",
+        image: "/images/hero1.png",
         title: "Fresh Food. Great Taste.",
         text: "Freshly prepared meals made with quality ingredients every day."
     },
 
     {
-        image: "images/hero2.png",
+        image: "/images/hero2.png",
         title: "Crispy. Hot. Delicious.",
         text: "Enjoy crispy chicken meals served hot with fries and your favorite drink."
     },
 
     {
-        image: "images/hero3.png",
+        image: "/images/hero3.png",
         title: "Burgers Made Better.",
         text: "Juicy burgers, fresh vegetables and bold flavors in every bite."
     },
 
     {
-        image: "images/hero4.png",
+        image: "/images/hero4.png",
         title: "Share More. Enjoy More.",
         text: "Perfect meals for friends and family, prepared fresh and ready to enjoy."
     }
@@ -200,12 +200,18 @@ if (header && hero) {
 const categoryButtons =
     document.querySelectorAll(".category-btn");
 
-const loadMoreBtn =
-    document.getElementById("loadMore");
-
+const loadMoreBtn =document.getElementById("loadMore");
+const menuSearch = document.getElementById("menuSearch");
 
 let currentCategory = "all";
 let visibleMeals = 6;
+
+if (menuSearch) {
+  menuSearch.addEventListener("input", () => {
+    visibleMeals = 6;
+    displayMeals();
+  }, { signal });
+}
 
 
 /* =========================
@@ -214,15 +220,19 @@ let visibleMeals = 6;
 
 function getFilteredMeals() {
 
-    if (currentCategory === "all") {
-        return meals;
-    }
+   const searchText =
+    menuSearch?.value.trim().toLowerCase() || "";
 
-    return meals.filter(function(meal) {
+  return meals.filter(meal => {
+    const matchesCategory =
+      currentCategory === "all" ||
+      meal.category === currentCategory;
 
-        return meal.category === currentCategory;
+    const matchesSearch =
+      meal.name.toLowerCase().includes(searchText);
 
-    });
+    return matchesCategory && matchesSearch;
+  });
 }
 
 
@@ -278,8 +288,12 @@ function displayMeals() {
     const mealsToShow =
         filterMeals.slice(0, visibleMeals);
 
-    showMenuStatus(filterMeals.length ? "" : "No meals available in this category.");
 
+        showMenuStatus(
+  filterMeals.length
+    ? ""
+    : "No meals match your search or selected category."
+);
 
 const isMobile =
     window.matchMedia("(max-width: 480px)").matches;

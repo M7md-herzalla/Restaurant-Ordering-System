@@ -30,8 +30,10 @@ export function renderAbout(){
             <legend>Give Us a FeedBack</legend>
         <form  id="contactForm">
              <br>
-            <label for="name">Name :</label>
-            <input type="text" id="contactName" placeholder="Enter Your Name..."  pattern="[A-Za-z\u0600-\u06FF\s]+" required>
+            
+             <label for="contactName">Name:</label>
+
+<input type="text" id="contactName" placeholder="Enter Your Name..." autocomplete="name" pattern="[A-Za-z\\u0600-\\u06FF\\s]+" required>
             <br><br>
             <label for="phone">Phone Number :</label>
             <input type="tel" id="contactPhone" placeholder="Enter Your Phone Number " pattern="[0-9]+" inputmode="numeric" required>
