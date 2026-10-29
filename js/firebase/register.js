@@ -65,7 +65,7 @@ const passwordRules=[
         valid:Array.from(password).some(
         character=>speicalChar.includes(character)
     ),
-        message: "Password must contain a special character, such as @ or !."
+        message: "Password must contain a special character, such as @ or #."
     }
 
 ];
@@ -117,7 +117,7 @@ if (!credential.user.emailVerified) {
 if (signal.aborted) {
   return;
 }
-navigate("/profile",{replace:true});
+navigate("/home",{replace:true});
 }
 catch(error){
     message.textContent =
@@ -156,9 +156,7 @@ document.querySelectorAll(".password-toggle").forEach(toggle=>{
 
     },{ signal });
 });
-document
-  .getElementById("registerConfirmPassword")
-  .addEventListener("input", () => {
+document.getElementById("registerConfirmPassword").addEventListener("input", () => {
     passwordHelp.hidden = true;
     passwordHelp.textContent = "";
   },{ signal });
@@ -193,7 +191,7 @@ try{
     await signInWithPopup(auth,googleProvider);
       if (signal.aborted) return;
 
-    navigate("/profile", { replace: true })
+    navigate("/home", { replace: true })
     message.textContent="Signed in successfully with Google";
 
 }

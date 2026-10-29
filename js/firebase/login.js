@@ -69,7 +69,7 @@ async function signIn(method) {
             if (signal.aborted) {
                 return;
               }
-          navigate("/profile",{replace:true});
+          navigate("/home",{replace:true});
     }
     catch(error){
         message.dataset.state=error.code==="auth/popup-closed-by-user"?"info":"error";

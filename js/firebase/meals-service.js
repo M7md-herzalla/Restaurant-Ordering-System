@@ -20,8 +20,7 @@ function toMenuMeal(snapshot) {
     !Number.isSafeInteger(data.calories) || data.calories < 0 ||
     !Array.isArray(data.ingredients) || !data.ingredients.length ||
     !data.ingredients.every(item => typeof item === "string" && item.trim()) ||
-    typeof data.description !== "string" ||
-    data.available !== true || !validImage
+    typeof data.description !== "string" || data.available !== true || !validImage
   ) {
     throw new Error(`Invalid meal document: meals/${snapshot.id}`);
   }

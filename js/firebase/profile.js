@@ -52,8 +52,7 @@ function setBusy(value) {
   function renderVerification() {
    const verified =Boolean(currentUser?.emailVerified);
     verificationStatus.textContent = verified ? "✓ Email verified" : "Please verify your email before placing an order.";
-    verificationPanel.dataset.state =
-    verified ? "verified" : "pending";
+    verificationPanel.dataset.state = verified ? "verified" : "pending";
     verificationActions.hidden = !currentUser || verified;
     resendVerificationButton.disabled = busy || !currentUser;
     checkVerificationButton.disabled = busy || !currentUser;

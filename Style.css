@@ -6,8 +6,6 @@
   --warm-cream: #F7F3ED;
   --soft-beige: #E9E2D9;
   --charcoal: #1F1F1F;
-  --text-gray: #555555;
-  --gold-accent: #E3A11A;
   --white: #FFFFFF;
 }
 
@@ -33,10 +31,6 @@ body {
   flex-direction: column;
 }
 
-main menu {
-  flex: 1;
-}
-
 /* === LINKS === */
 
 a {
@@ -59,13 +53,6 @@ img {
 
 /* === HEADER === */
 
-.mainHeader.scrolled {
-    
-  background-color: #d3cfcf;
-  box-shadow: 0 3px 12px  rgb(0, 0, 0,0.6);
-  padding: 12px 6%;
-}
-
 .header-Logo:hover {
   text-shadow: 2px 2px 6px rgb(0, 0, 0,0.6);
   cursor: pointer;
@@ -74,22 +61,22 @@ img {
 }
 
 nav.headerList {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-   
-}
-.mainHeader nav.profile{
-    flex: 0 0 auto;
-    width: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+.mainHeader nav.profile {
+  flex: 0 0 auto;
+  width: auto;
+}
 
 .mainHeader nav.profile .nav-account-slot {
   min-width: 44px;
 }
+
 .headerList ul a {
-    gap: 20px;
+  gap: 20px;
   color: var(--charcoal);
   padding: 10px;
   font-weight: bold;
@@ -113,31 +100,9 @@ nav.headerList {
   width: calc(100% - 70px);
 }
 
-.home-header {
-  transform: translateY(-120%);
-  transition: transform 0.4s ease;
-}
-
-.home-header.show {
-  transform: translateY(0);
-}
-
 /* === HERO === */
 
-.hero {
-  position: relative;
-  transition: 0.4s;
-}
-
-.hero.hide {
-  opacity: 0;
-  transform: translateY(-30px);
-  pointer-events: none;
-}
-
 .hero-copy {
-  width: 38%;
-  min-width: 0;
   align-self: center;
 }
 
@@ -160,22 +125,16 @@ nav.headerList {
   border: 2px solid #ece8e8;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
   opacity: 0.9;
-
 }
 
 .Hero-Text h1 {
   margin: 0;
-  font-size: clamp(42px, 5vw, 70px);
-  line-height: 1.08;
   color: var(--charcoal);
 }
 
 .Hero-img img {
   background-color: var(--soft-beige);
   box-shadow: 2px 4px 8px rgb(0, 0, 0,0.6);
-  width: 100%;
-  height: 90%;
-  object-fit: cover;
 }
 
 #heroSlider,
@@ -204,12 +163,6 @@ nav.headerList {
   opacity: 0;
 }
 
-.hero-morph {
-  opacity: 0;
-  transform: scale(0.96) translateY(12px);
-  filter: blur(6px);
-}
-
 .hero-controls {
   display: flex;
   justify-content: center;
@@ -217,31 +170,22 @@ nav.headerList {
 }
 
 .hero-controls .slider-btn {
-  position: static;
-  inset: auto;
-  transform: none;
-  margin: 0;
   border-radius: 10px;
   background-color: var(--charcoal);
   color: white;
   font-size: 20px;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
-  margin-top: 20px;
   padding: 0;
   transition: background-color 0.2s ease;
 }
 
 .order-Now {
-  margin-top: 30px;
-  padding: 15px 40px;
   background-color: #020202;
   border-radius: 15px;
   color: antiquewhite;
-  font-size: 20px;
   box-shadow: 0 2px 8px rgba(45, 45, 45, 0.5);
 }
+
 a.order-Now {
   display: inline-block;
   text-decoration: none;
@@ -254,19 +198,20 @@ a.order-Now {
   font-size: 20px;
 }
 
+.popular-dishs-card {
+  margin: 0;
+}
+
 .popular-dishs-card h1 {
   margin-top: 1%;
   text-align: center;
-  font-size: 40px;
   font-weight: bold;
 }
 
 .meal-area p {
+ 
   align-self: center;
-  padding: 10px;
   text-align: left;
-  width: 50%;
-  font-size: 18px;
 }
 
 .mealCard:hover {
@@ -276,57 +221,6 @@ a.order-Now {
 .mealCard img {
   box-shadow: 2px 4px 2px rgb(0, 0, 0,0.6);
   cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
-
-.why-us h1 {
-  text-align: center;
-  margin-top: 5%;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.why-list {
-  box-sizing: border-box;
-  margin: 5%;
-  padding: 20px;
-  justify-self: center;
-  background-color: #fdfffd;
-  height: auto;
-  width: 90%;
-  border: 2px solid #f6f5f5;
-  border-radius: 15px;
-  box-shadow: 4px 8px 12px rgb(0,0,0,0.8);
-  position: relative;
-}
-
-.why-list ul {
-  display: flex;
-  justify-content: center;
-}
-
-.why-list h1 {
-  color: #faf8f8;
-  background-size: 200px;
-  font-size: 24px;
-  width: 100%;
-  background-color: #ad1c1c;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.why-list h4 {
-  margin-left: 15%;
-  height: 80%;
-  width: 60%;
-  font-size: 18px;
-  text-align: center;
-  padding-left: 10px;
-}
-
-.why-list:hover {
-  transform: translateY(-7px);
 }
 
 /* === Menu Page === */
@@ -342,23 +236,18 @@ a.order-Now {
 }
 
 #menuSearch {
-  width: min(500px, 90%);
   justify-self: center;
   display: block;
-  padding: 18px 12px;
   border: 1px solid #ccc;
   border-radius: 25px;
-  font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-btn {
   background-color: white;
-  padding: 10px 22px;
   border: 2px solid #333;
   border-radius: 25px;
   color: var(--brand-red);
-  font-size: 20px;
   transition: 0.3s;
 }
 
@@ -417,34 +306,17 @@ a.order-Now {
   display: flex;
   flex-direction: column;
   height: auto;
-  gap: 25px;
 }
 
 .menu-card img {
-  width: 100%;
-  height: 220px;
   display: block;
-  margin: 15px auto;
-  object-fit: cover;
   border: 2px solid #ddd;
   border-radius: 10px;
-}
-
-.menu-card h3 {
-  .menu-card h3 {
-    font-size: 22px;
-    text-align: center;
-    margin-left: 10%;
-  }
 }
 
 .menu-card p {
   font-size: 16px;
   text-align: center;
-}
-
-.cal {
-  text-align: left;
 }
 
 .menu-card:hover {
@@ -472,16 +344,9 @@ a.order-Now {
 
 /* === GENERAL SECTION === */
 
-.section {
-  width: 95%;
-  margin: 50px auto;
-  padding: 30px;
-}
-
 /* === BUTTONS === */
 
-button,
-.btn {
+button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -489,8 +354,7 @@ button,
   transition: 0.3s;
 }
 
-button:hover,
-.btn:hover {
+button:hover {
   transform: translateY(-7px);
 }
 
@@ -526,13 +390,6 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(4,1.5fr);
-}
-
-.footer-grid ul {
-  margin: 20px;
-  font-size: 20px;
-  padding: 10px;
 }
 
 .footer-grid a:hover {
@@ -542,7 +399,6 @@ footer {
 .copyright {
   width: 100%;
   border-top: 2px solid black;
-  padding: 25px;
   text-align: center;
 }
 
@@ -561,12 +417,8 @@ footer {
 }
 
 .cart-item {
-  display: flex;
   align-items: center;
-  gap: 20px;
   width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
   background-color: #fafafa;
   border: 2px solid #eeeeee;
   border-radius: 10px;
@@ -591,13 +443,10 @@ footer {
 .your-cart {
   min-width: 0;
   background-color: var(--white);
-  padding: 30px;
   border: none;
   border-radius: 20px;
   height: auto;
-  margin: 0;
   justify-self: center;
-  width: 60%;
   box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -610,8 +459,6 @@ footer {
 .decrease-btn {
   font-size: 16px;
   padding: 3px;
-  width: 25px;
-  height: 25px;
   background-color: var(--charcoal);
   color: white;
   box-shadow: 2px 2px 2px rgb(0,0,0,0.5);
@@ -632,11 +479,7 @@ footer {
 }
 
 .cart-summry {
-  margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-  padding: 22px 25px;
   align-items: center;
   background-color: var(--warm-cream);
   border-radius: 14px;
@@ -648,7 +491,6 @@ footer {
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 20px;
 }
 
 .cart-summry h2 {
@@ -663,10 +505,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s ease;
 }
 
 .checkout-modal.show {
@@ -679,14 +519,12 @@ footer {
 }
 
 .checkout-box h2 {
-  font-size: 34px;
   text-align: center;
   color: #222;
 }
 
 .order-form label {
   display: block;
-  margin-top: 5px;
   font-weight: bold;
   color: #222;
 }
@@ -694,10 +532,8 @@ footer {
 .order-form input,
 .order-form textarea {
   width: 100%;
-  padding: 14px 16px;
   border: 1px solid #ccc;
   border-radius: 12px;
-  font-size: 16px;
   outline: none;
 }
 
@@ -714,7 +550,6 @@ footer {
 
 .payment-method p {
   font-weight: bold;
-  margin-top: 18px;
 }
 
 .order-total-box {
@@ -780,7 +615,6 @@ footer {
 
 .cart-toast.show {
   opacity: 1;
-  transform: translateX(0);
 }
 
 /* === About & Contact Us === */
@@ -793,7 +627,6 @@ footer {
 
 .contact-form {
   justify-self: center;
-  padding: 30px;
   height: auto;
   width: 70%;
   border: none;
@@ -840,7 +673,6 @@ footer {
 
 .about-section h1 {
   font-weight: bold;
-  font-size: 45px;
 }
 
 .auth-page {
@@ -978,12 +810,6 @@ footer {
 
 /* === Sign In Page === */
 
-auth-message {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
 .auth-message[data-state="error"] {
   color: #b91c1c;
 }
@@ -1014,7 +840,7 @@ auth-message {
 }
 
 .page-profile [hidden] {
-  display: none;
+  display: none !important;
 }
 
 .profile-card h1 {
@@ -1050,8 +876,6 @@ auth-message {
   background: #fef2f2;
 }
 
-/* Replace the old RESPONSIVE section with this entire file. */
-
 /* Shared layout: no fixed heights and no sideways page scrolling. */
 
 main,
@@ -1086,10 +910,6 @@ fieldset,
 body > .mainHeader:not(.home-header) {
   position: sticky;
   top: 0;
-}
-
-body > .mainHeader + main > br {
-  display: none;
 }
 
 .header-Logo {
@@ -1230,18 +1050,19 @@ body > .mainHeader + main > br {
   border-radius: 20px;
   box-shadow: 4px 8px 12px rgb(0, 0, 0,0.6);
   width: calc(100% - 48px);
-  max-width: 1120px;
   height: auto;
-  margin: 48px auto;
   padding: 32px;
 }
-
+.dish-description
+{
+  display: flex;
+}
 .popular-dishs-card h1 {
   font-size: clamp(26px, 3vw, 36px);
 }
 
 .meal-area {
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
   display: flex;
   justify-self: center;
   width: 100%;
@@ -1251,9 +1072,9 @@ body > .mainHeader + main > br {
 }
 
 .meal-area p {
-  width: 50%;
+  width: 80%;
   padding: 0;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
 }
 
@@ -1264,52 +1085,27 @@ body > .mainHeader + main > br {
 
 .mealCard {
   background-color: transparent;
-  margin-top: 2%;
   justify-items: center;
   align-items: center;
   transition: 0.3s;
-  width: 50%;
+  width: 90%;
   height: auto;
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 
 .mealCard img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
 }
-
-.why-us p {
-  margin-left: 32%;
-  text-align: center;
-  font-weight: bold;
-  width: min(90%, 700px);
-  margin: 16px auto;
-  font-size: clamp(18px, 2vw, 24px);
-}
-
-.why-list ul {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.why-list ul li {
-  background-color: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-  transition: transform 0.3s ease;
-  width: 100%;
-  margin: 0;
-  padding: 16px;
-}
-
-.why-list h4 {
+.mealCard img {
   width: 100%;
   height: auto;
-  margin: 12px 0 0;
-  padding: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* Menu: breakpoints match getMenuColumnCount() in javaScript.js. */
@@ -1321,7 +1117,6 @@ body > .mainHeader + main > br {
   box-shadow: 0 4px 12px rgb(0, 0, 0,0.6);
   max-width: 1600px;
   height: auto;
-  margin-bottom: 50px;
   width: calc(100% - 48px);
   margin: 32px auto 48px;
   padding: 28px;
@@ -1337,7 +1132,6 @@ body > .mainHeader + main > br {
 .categories {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
   flex-wrap: wrap;
   gap: 12px;
   padding: 24px 0 0;
@@ -1352,8 +1146,6 @@ body > .mainHeader + main > br {
 .menu-grid {
   max-width: 1500px;
   height: auto;
-  margin-top: 5%;
-  margin-left: 2%;
   display: grid;
   align-items: start;
   opacity: 1;
@@ -1372,7 +1164,6 @@ body > .mainHeader + main > br {
 .menu-card {
   box-sizing: border-box;
   overflow: hidden;
-  margin-left: 2.5%;
   min-height: 100px;
   background-color: white;
   border-radius: 12px;
@@ -1428,7 +1219,6 @@ body > .mainHeader + main > br {
   font-style: italic;
   border: 2px solid #000000;
   border-radius: 20px;
-  margin-top: 3%;
   padding: 10px;
   display: flex;
   justify-self: center;
@@ -1634,7 +1424,6 @@ body > .mainHeader + main > br {
 
 .about-contact-section {
   justify-self: center;
-  padding-top: 130px;
   height: auto;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -1654,7 +1443,6 @@ body > .mainHeader + main > br {
 }
 
 .about-section {
-  padding-left: 40px;
   width: 80%;
   padding: 0;
   text-align: left;
@@ -1730,8 +1518,6 @@ body > .mainHeader + main > br {
   font-size: 14px;
 }
 
-/* Account pages, including the existing hidden profile card. */
-
 .auth-page,
 .page-login .auth-page,
 .page-profile .auth-page {
@@ -1746,7 +1532,10 @@ body > .mainHeader + main > br {
   max-width: 420px;
   background: var(--white);
   border-radius: 18px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);    flex: none;
+    width: 100%;
+    max-width: 620px;
+    height: clamp(240px, 52vw, 460px);
   width: 100%;
   padding: clamp(20px, 4vw, 30px);
 }
@@ -1799,7 +1588,6 @@ body > .mainHeader + main > br {
   display: grid;
   place-items: center;
   justify-self: center;
-  border-radius: 50%;
   background: var(--soft-beige);
   color: var(--brand-red);
   font-weight: bold;
@@ -1807,6 +1595,7 @@ body > .mainHeader + main > br {
   height: 56px;
   font-size: 24px;
 }
+
 .verification-panel {
   display: grid;
   gap: 12px;
@@ -1838,11 +1627,8 @@ body > .mainHeader + main > br {
   }
 }
 
-/* Touch devices: avoid hover movement. Existing JavaScript handles tap-to-expand. */
-
 @media (hover: none) {
   button:hover,
-  .btn:hover,
   .mealCard:hover,
   .cart-item:hover,
   .menu-card:hover {
@@ -1857,22 +1643,7 @@ body > .mainHeader + main > br {
 /* Tablets: no gaps between overlapping width ranges. */
 
 @media (max-width: 900px) {
-      .mainHeader .header-Logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-  }
-
-  .mainHeader nav .nav-account-slot {
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .mainHeader,
-  .mainHeader.scrolled {
+  .mainHeader {
     flex-direction: column;
     align-items: stretch;
     gap: 6px;
@@ -1891,7 +1662,7 @@ body > .mainHeader + main > br {
 
   .mainHeader nav ul {
     display: flex;
-    gap: 15px ;
+    gap: 15px;
   }
 
   .mainHeader nav a {
@@ -1905,7 +1676,22 @@ body > .mainHeader + main > br {
     gap: 24px;
     padding: 24px 20px;
   }
-
+  .popular-dishs-card{
+    width: 75%;
+  }
+.dish-description
+{
+  display: flex;
+  flex-direction: column;
+}
+.meal-area p{
+  width: 80%;
+}
+.mealCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   .hero-copy {
     flex: none;
     width: 100%;
@@ -1924,7 +1710,6 @@ body > .mainHeader + main > br {
   }
 
   .menu-grid,
-  .why-list ul,
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2075,8 +1860,7 @@ body > .mainHeader + main > br {
 }
 
 @media (max-width: 480px) {
-  .menu-grid,
-  .why-list ul {
+  .menu-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -2115,17 +1899,12 @@ body > .mainHeader + main > br {
 .mainHeader nav .account-link {
   display: grid;
   place-items: center;
-
   width: 45px;
   height: 45px;
   min-height: 42px;
-
-  overflow: hidden;
   border: 1px solid #c9bfb3;
-  border-radius: 50%;
   background: #f7f3ed;
   color: var(--brand-red);
-
 }
 
 .mainHeader nav .account-link::after {
@@ -2137,20 +1916,24 @@ body > .mainHeader + main > br {
   font-weight: bold;
   line-height: 1;
 }
+
 .mainHeader nav .account-link {
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
 }
-.account-link:hover{
-transform: scale(1.1);
+
+.account-link:hover {
+  transform: scale(1.1);
 }
+
 .account-link img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .mainHeader nav .account-link img,
 .profile-avatar img {
   display: block;
@@ -2158,11 +1941,13 @@ transform: scale(1.1);
   height: 100%;
   object-fit: cover;
 }
+
 .profile-avatar {
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
 }
+
 .account-link:focus-visible {
   outline: 2px solid var(--brand-red);
   outline-offset: 3px;
