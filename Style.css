@@ -1535,7 +1535,6 @@ body > .mainHeader:not(.home-header) {
   box-shadow: 0 8px 24px rgb(0 0 0 / 12%);    flex: none;
     width: 100%;
     max-width: 620px;
-    height: clamp(240px, 52vw, 460px);
   width: 100%;
   padding: clamp(20px, 4vw, 30px);
 }
